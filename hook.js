@@ -1,4 +1,5 @@
 lpTag.external = lpTag.external || {};
+const LP_LINE_ID = "lp_line_";
 const getAttribute = (value, name = "data-lp-point", matchLike = false) => {
   return `${name}${matchLike ? "^" : ""}='${value}'`;
 };
@@ -19,8 +20,8 @@ lpTag.external.hook = {
 
         setTimeout(() => {
           const idx = lastLineIdx || lineElements.length;
-          const prevMessageElement = document.querySelector(`div[${getAttribute(`${"lp_line_"}${idx - 1}`, "id")}]`);
-
+          const prevMessageElement = document.querySelector(`div[${getAttribute(`${LP_LINE_ID}${idx - 1}`, "id")}]`);
+          console.log("prevMessageElement", prevMessageElement);
           engagementAreaElement.style.overflow = "auto";
           engagementAreaElement.scrollTop = prevMessageElement.offsetTop - 100;
         }, 1000);
