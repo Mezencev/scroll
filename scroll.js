@@ -1,4 +1,3 @@
-const MAX_VISIBLE_TEXT_ELEMENTS_COUNT = 6; // 2 elements per 3 lines each
 const RICH_CONTENT_TYPE = "richContent";
 // HTML DATA ATTRIBUTES:
 const ATTRIBUTE_NAME = "data-lp-point";
@@ -20,7 +19,7 @@ try {
 
         const lastLineIdx = data.lines.length - 1;
         const lastLine = data.lines[lastLineIdx];
-        if (!lastLine || lastLine.type !== RICH_CONTENT_TYPE || lastLine.text.elements.length < MAX_VISIBLE_TEXT_ELEMENTS_COUNT) return;
+        if (!lastLine || lastLine.type !== RICH_CONTENT_TYPE || lastLine.text.elements.length < 6) return;
 
         const lineElements = document.querySelectorAll(`div[${getAttribute(LINES_AREA)}] > div[${getAttribute(LP_LINE_ID, "id", true)}]`);
         const engagementAreaElement = document.querySelector(`div[${getAttribute(ENGAGEMENT_AREA)}]`);
