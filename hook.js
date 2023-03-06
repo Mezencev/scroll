@@ -4,9 +4,9 @@ const getAttribute = (value, name = "data-lp-point", matchLike = false) => {
 };
 lpTag.external.hook = {
   // handle incoming messages
-  afterGetLines: function (data) {
+  afterGetLines: function ({data}) {
     try {
-      if (data.data.lines.length > 0) {
+      if (data.lines.length > 0) {
         const lastLineIdx = data.lines.length - 1;
         const lastLine = data.lines[lastLineIdx];
         if (!lastLine || lastLine.type !== "richContent" || lastLine.text.elements.length < 6) return;
