@@ -33,7 +33,7 @@ lpTag.external.hook = {
           const prevMessageElement = document.querySelector(`div[${getAttribute(`${LP_LINE_ID}${idx - 1}`, "id")}]`);
           console.log("prevMessageElement", prevMessageElement);
           engagementAreaElement.style.overflow = "auto";
-          engagementAreaElement.scrollTop = prevMessageElement.offsetTop - 100;
+          engagementAreaElement.scrollTop = prevMessageElement ? (prevMessageElement.offsetTop - 100) || 0;
         }, 1000);
       }
     } catch (e) {
