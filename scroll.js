@@ -8,7 +8,7 @@ const LINES_AREA = "lines_area";
 const LP_LINE_ID = "lp_line_";
 
 const getAttribute = (value, name = ATTRIBUTE_NAME, matchLike = false) => {
-  return `${name}${matchLike ? "^" : ""}='${value}`;
+  return `${name}${matchLike ? "^" : ""}='${value}'`;
 };
 
 try {
