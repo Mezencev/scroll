@@ -28,13 +28,16 @@ lpTag.external.hook = {
         // Disabling scroll
         engagementAreaElement.style.overflow = "hidden";
 
-        setTimeout(() => {
-          const idx = lastLineIdx || lineElements.length;
-          const prevMessageElement = document.querySelector(`div[${getAttribute(`${LP_LINE_ID}${idx - 1}`, "id")}]`);
-          console.log("prevMessageElement", prevMessageElement);
-          engagementAreaElement.style.overflow = "auto";
-          engagementAreaElement.scrollTop = prevMessageElement ? (prevMessageElement.offsetTop - 100) : 0;
-        }, 1000);
+            setTimeout(() => {
+              const idx = lastLineIdx || lineElements.length;
+              const prevMessageElement = lineElements[lineElements.length - 1] ||
+              document.querySelector(`div[${getAttribute(`${LP_LINE_ID}${idx - 1}`, 'id')}]`);
+
+              console.log('prevMessageElement', prevMessageElement);
+
+              engagementAreaElement.style.overflow = 'auto';
+              engagementAreaElement.scrollTop = prevMessageElement.offsetTop - 100;
+            }, 1000);
       }
     } catch (e) {
       console.error(e);
